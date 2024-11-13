@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex; align-items: center; flex-direction: column; text-align: center;">
+        <h4>Display Users here </h4>
+        
+        <table style="font-size: 16px;">
+            <th>
+                <tr >
+                    <td style="margin-right: 35px"> name  </td>
+                    <td></td>
+                    <td>  email</td>
+                </tr>
+            </th>
+            <tbody>
+                
+                    <% users.forEach(function(user){ %>
+                        <tr> 
+                            <form action="http://localhost:8080/users/delete" method="post"> 
+                                <td ><%= user.name %></td>
+                                <td>|||</td>
+                                <td><a href=""> <%= user.email %></a></td>
+                                <input style="display: none;" name="id" type="number" value= "<%= user.id %>" />
+                                <td><button type="submit" style="background-color: rgb(173, 50, 50); color: white;">DELETE</button></td>
+                            </form>
+                        </tr> 
+                    <% }); %>
+                    
+                    
+                
+            </tbody>
+        </table>
+
+
+
+        <form action="http://localhost:8080/users" method="post">
+                <h4>Add User here</h4>
+                    <input type="text"  placeholder="name" name="name"  required>
+                    <input type="text"  placeholder="email" name="email"  required>
+                    <input type="submit" value="submit">
+        </form>
+
+
+        <form style="margin-top: 50px;" action="http://localhost:8080/users" method="post">
+            <h4>login here with  email and password</h4>
+                <input type="text"  placeholder="name" name="name"  required>
+                <input type="text"  placeholder="email" name="email"  required>
+                <input type="submit" value="submit">
+       </form>
+    </div>
+   
+</body>  
+</html>
