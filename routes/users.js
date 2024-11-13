@@ -25,7 +25,7 @@ function authentification (res,res,next) {
 router.get('/',(req,res)=> {
      res.render('users', {users} );
 })
-
+// get  all users here
 router.get('/:userId',(req, res) => {
    const userId = parseInt(req.params.userId) 
    const user =  users.find(({id}) => id === userId) ; 
@@ -35,22 +35,41 @@ router.get('/:userId',(req, res) => {
 
 let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+// add new user here
 router.post('/' ,urlencodedParser, (req,res)=> {
-    console.log("request has :" + req.body.email);
      const user = { id: randomId , 
            name : req.body.name,
-           email : req.body.email 
+           email : req.body.email,
+           password : req.body.password 
        } 
     users.push(user)
     randomId ++ ; 
     res.redirect('/users')   
 })             
    
+// delete a user here 
 router.post('/delete',urlencodedParser,(req,res)=> {
     console.log(req.body.id);
     users = [...users.filter((user) => user.id !== parseInt((req.body.id)) )]
     // console.log(users)
     res.redirect('/users')
 })
-    
+   
+// login here , i wish I am using a data base here like mongoDB would've been easier
+router.post("/login", (req,res) => {
+   const user = isAuthValide(req.body.email,req.body.password);
+   if(!user) return  res.render('users', {users : users}, {"can't login" : message} );
+   return  res.render('users', {users : users}, {"successfully logged in" : message} ,{user : user} );
+})
+function isAuthValide(email , password) {
+    const newUser = null ; 
+    users.forEach(user => {
+        if(user.email == email && user.password == password)
+        newUser = user ;
+    })
+    return newUser
+}
+
+
+
 module.exports = router;

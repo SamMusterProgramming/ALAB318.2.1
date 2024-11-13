@@ -7,7 +7,7 @@
 </head>
 <body>
     <div style="display: flex; align-items: center; flex-direction: column; text-align: center;">
-        <h4>Display Users here </h4>
+        <h2>Display Users here </h2>
         
         <table style="font-size: 16px;">
             <th>
@@ -15,6 +15,8 @@
                     <td style="margin-right: 35px"> name  </td>
                     <td></td>
                     <td>  email</td>
+                    <td></td>
+                    <td>  password </td>
                 </tr>
             </th>
             <tbody>
@@ -25,8 +27,11 @@
                                 <td ><%= user.name %></td>
                                 <td>|||</td>
                                 <td><a href=""> <%= user.email %></a></td>
+                                <td>|||</td>
+                                <td><a href=""> <%= user.password %></a></td>
                                 <input style="display: none;" name="id" type="number" value= "<%= user.id %>" />
                                 <td><button type="submit" style="background-color: rgb(173, 50, 50); color: white;">DELETE</button></td>
+                        
                             </form>
                         </tr> 
                     <% }); %>
@@ -39,20 +44,49 @@
 
 
         <form action="http://localhost:8080/users" method="post">
-                <h4>Add User here</h4>
+                <h2>Add User here</h2>
                     <input type="text"  placeholder="name" name="name"  required>
-                    <input type="text"  placeholder="email" name="email"  required>
-                    <input type="submit" value="submit">
+                    <input type="email"  placeholder="email" name="email"  required>
+                    <input type="password"  placeholder="password" name="password"  required>
+                    <button style="background-color: lightgreen;" type="submit">SEND</button>
         </form>
 
 
-        <form style="margin-top: 50px;" action="http://localhost:8080/users" method="post">
-            <h4>login here with  email and password</h4>
-                <input type="text"  placeholder="name" name="name"  required>
-                <input type="text"  placeholder="email" name="email"  required>
-                <input type="submit" value="submit">
+        <form style="margin-top:50px;" action="http://localhost:8080/users/login" method="post">
+                <h2>login here with  email and password</h2>
+                <input type="email"  placeholder="email" name="email"  required>
+                <input type="password"  placeholder="password" name="password"  required>
+                <button style="background-color: skyblue;" type="submit">LOGIN</button>
+             
        </form>
+
+       <div>
+        <% if (message) { %>
+         <h4> <%= message %></h4>
+         <% if (user) { %>
+         <p> <%= user %>  </p>
+         %>}
+         %>}
+       </div>
     </div>
-   
+    <style>
+        input {
+            border-radius: 10px;
+            width: 150px;
+            height: 30px;
+            font-size: 18px;
+            padding: 10px;
+            background-color: antiquewhite;
+        }
+        button {
+            border-radius: 10px;
+            font-size: 18px;
+            width: 110px;
+            height: 50px;
+        }
+        table  tr td {
+            font-size: 16px;
+        }
+    </style>
 </body>  
 </html>
