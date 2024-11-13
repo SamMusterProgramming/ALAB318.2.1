@@ -20,9 +20,15 @@ router.get('/:userId',(req, res) => {
    const user =  users.find(({id}) => id === userId) ; 
    if(!user) return res.status(400).json(`could't find user ` )
    return res.status(200).json(user)
-  })
+})
+router.post('/add' , (req,res)=> {
+     const user = { id: randomId , 
+           name : req.body.name,
+           email : req.body.email 
+    }
+    users.push(user)
+    res.status(200).json(user)
 
-  
-  
+})
 
 module.exports = router;
