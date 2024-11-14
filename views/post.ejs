@@ -6,17 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    fgdfgdfgfgf
+   
     <div style="display: flex;flex-direction: column;align-items: center;justify-content: start;">
+        <% if (posts) { %>   
     <% posts.forEach(function(post) { %>
         <div style="width: 600px; height: 600%; display: flex;flex-direction: column; align-items: center;text-align: center;"> 
                 <h4 ><%= post.description %></h4>
                 <div>
-                  <img src = " <%= post.url %> " alt="">
+                  <img style="height: 250px; width: 350px;" src = " <%= post.url %> " alt="">
                 </div>
-               
+                <a href="http://localhost:8080/posts/<%= post.id %>  ">go to download page </a>
         </div> 
     <% }); %>
+    <% } %>   
+
+    <% if (post) { %>
+        <div style="display: flex; flex-direction: column;text-align: center;align-items: center;">
+                <h4 ><%= post.description %></h4>
+                <div>
+                  <img src = " <%= post.url %> " alt="">
+                </div>
+                <button style="font-size: 16px;background-color: black;color: white;
+                width: 120px;height: 45px;cursor: pointer;">Download</button>
+        </div>
+        <% } %>   
    </div>
 </body>
 </html>

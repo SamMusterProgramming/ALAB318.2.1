@@ -54,7 +54,8 @@ router.post('/delete',urlencodedParser,(req,res)=> {
 router.post("/login",urlencodedParser ,(req,res) => {
     const user = isAuthValide(req.body.email,req.body.password);
     if(!user) return  res.render('home',{user:user ,message :" logging failed " , color: "red"} );
-    return  res.render('home', { user : user ,message :" Successfully logged in ", color : "lightgreen"} );
+    return  res.render('home', { user : user ,message :" Successfully logged in ",
+     color : "lightgreen" , post_id:42 } );
 })
 
 function isAuthValide(email,password) {

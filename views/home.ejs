@@ -9,11 +9,15 @@
     <div style="display: flex; flex-direction: column;align-items: center;">
            <div>
            <p id="message" style=" font-size: 30px;">  <%= message %>  </p> 
+           
            </div>
-        <% if (user) { %>
-            <h4><span style="color :blue " >Welcome </span><%= user.name %></h4>
+           <% if (user) { %>
+            <h4 style=" margin-top: 80px;"><span style="color :blue ;" >Welcome </span><%= user.name %></h4>
+            <p>we reward you with an image for your successful logging attemps</p>
+            <img src="http://localhost:8080/static/asset/43.jpg" alt="">
+            <a style="margin-top: 80px;" href= "http://localhost:8080/posts/">explore more posts</a>
           <% } %>
-
+           <br>
           <a href="http://localhost:8080/users"> Go back to users</a>
     </div>
        

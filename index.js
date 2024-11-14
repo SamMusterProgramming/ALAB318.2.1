@@ -19,7 +19,7 @@ app.use('/static', express.static('public'))
   
 
 app.get("/", (req, res) => {
-  res.render('home', {user:{name:"unkown"} , message : "Welcome to our users interface", color: "skyblue"})  
+  res.render('home', {user:{name:"unkown"} , message : "Welcome to our users interface", color: "skyblue",post_id:55})  
 });
 
 

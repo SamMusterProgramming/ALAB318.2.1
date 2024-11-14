@@ -23,15 +23,17 @@ for(let i = 44 ; i< 56 ; i++ ) {
    posts.push({["id"]:i ,["url"]:`http://localhost:8080/static/asset/${i}.jpg`,["description"]:"beauty of nature"})
 }
 
+
 router.get('/',(req,res) => {
-   if(posts) return res.render('post', {posts})
+   if(posts) return res.render('post', {posts , post:null})
 })
 
 router.get('/:postId',(req,res) => {
    const post_id = req.params.postId ;
    const post = posts.find(post => post.id == post_id)
-   if(posts) return res.render('post', {posts})
+   console.log(post)
+   if(post) return res.render('post', {posts:null, post:post})
 })
-
+      
 
 module.exports = router
