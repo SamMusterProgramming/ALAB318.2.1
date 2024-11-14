@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    fgdfgdfgfgf
+    <div style="display: flex;flex-direction: column;align-items: center;justify-content: start;">
+    <% posts.forEach(function(post) { %>
+        <div style="width: 600px; height: 600%; display: flex;flex-direction: column; align-items: center;text-align: center;"> 
+                <h4 ><%= post.description %></h4>
+                <div>
+                  <img src = " <%= post.url %> " alt="">
+                </div>
+               
+        </div> 
+    <% }); %>
+   </div>
+</body>
+</html>

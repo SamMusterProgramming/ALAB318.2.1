@@ -10,20 +10,16 @@ let users =[ {
     password : "samirhaddadi"
 },
 {
-    id:124,   
+    id:124,
     name: "John Mallan",
     email : "johnmallan@gmail.com",
     password : "johnmallan"
 }]
-let randomId = 124;
+let randomId = 125;
 
 
-//middleware function 
-function authentification (res,res,next) {
-    next()
-}
+
 router.get('/',(req,res)=> {
-   
      res.render('users' , {users} );
 })            
 // get  all users here
@@ -50,18 +46,15 @@ router.post('/' ,urlencodedParser, (req,res)=> {
    
 // delete a user here 
 router.post('/delete',urlencodedParser,(req,res)=> {
-    console.log(req.body.id);
     users = [...users.filter((user) => user.id !== parseInt((req.body.id)) )]
     res.redirect('/users')  
 })
    
 // login here , i wish I am using a data base here like mongoDB would've been easier
-router.post("/login",urlencodedParser, (req,res) => {
-    
-   const user = isAuthValide(req.body.email,req.body.password);
-   console.log(user)
-   if(!user) return  res.render('home',{user:user ,message :" logging failed " , color: "red"} );
-   return  res.render('home', { user : user ,message :" Successfully logged in ", color : "lightgreen"} );
+router.post("/login",urlencodedParser ,(req,res) => {
+    const user = isAuthValide(req.body.email,req.body.password);
+    if(!user) return  res.render('home',{user:user ,message :" logging failed " , color: "red"} );
+    return  res.render('home', { user : user ,message :" Successfully logged in ", color : "lightgreen"} );
 })
 
 function isAuthValide(email,password) {
@@ -72,6 +65,8 @@ function isAuthValide(email,password) {
     })              
     return newUser  
 }
+   
+
   
 
    
