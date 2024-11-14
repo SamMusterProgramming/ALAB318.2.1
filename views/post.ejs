@@ -15,7 +15,7 @@
                 <div>
                   <img style="height: 250px; width: 350px;" src = " <%= post.url %> " alt="">
                 </div>
-                <a href="http://localhost:8080/posts/<%= post.id %>  ">go to download page </a>
+                <a href="http://localhost:8080/posts/ <%= post.id %>  ">go to download page </a>
         </div> 
     <% }); %>
     <% } %>   
@@ -28,6 +28,7 @@
                 </div>
                 <button style="font-size: 16px;background-color: black;color: white;
                 width: 120px;height: 45px;cursor: pointer;">Download</button>
+                <a href="http://localhost:8080/posts/download">DOWNLOAD </a>
         </div>
         <% } %>   
    </div>

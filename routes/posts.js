@@ -34,6 +34,12 @@ router.get('/:postId',(req,res) => {
    console.log(post)
    if(post) return res.render('post', {posts:null, post:post})
 })
-      
+
+// I couldn't get the download to work , i will search more about this
+router.get('/download',(req,res) => {
+    console.log("I am here")
+    window.open('http://localhost:8080/static/asset/42.jpg')
+    res.download(__dirname + 'jsonFile.json');
+ })
 
 module.exports = router
