@@ -21,7 +21,7 @@
             </th>
             <tbody>
                 
-                    <% users.forEach(function(user){ %>
+                    <% users.forEach(function(user) { %>
                         <tr> 
                             <form action="http://localhost:8080/users/delete" method="post"> 
                                 <td ><%= user.name %></td>
@@ -35,39 +35,30 @@
                             </form>
                         </tr> 
                     <% }); %>
-                    
-                    
                 
             </tbody>
         </table>
 
-
-
         <form action="http://localhost:8080/users" method="post">
-                <h2>Add User here</h2>
-                    <input type="text"  placeholder="name" name="name"  required>
-                    <input type="email"  placeholder="email" name="email"  required>
-                    <input type="password"  placeholder="password" name="password"  required>
-                    <button style="background-color: lightgreen;" type="submit">SEND</button>
+            <h2>Add User here</h2>
+            <input type="text"  placeholder="name" name="name"  required>
+            <input type="email"  placeholder="email" name="email"  required>
+            <input type="password"  placeholder="password" name="password"  required>
+            <button style="background-color: lightgreen;" type="submit">SEND</button>
         </form>
 
 
-        <form style="margin-top:50px;" action="http://localhost:8080/users/login" method="post">
-                <h2>login here with  email and password</h2>
-                <input type="email"  placeholder="email" name="email"  required>
-                <input type="password"  placeholder="password" name="password"  required>
-                <button style="background-color: skyblue;" type="submit">LOGIN</button>
-             
+       <form style="margin-top:50px;" action="http://localhost:8080/users/login" method="post">
+        <h2>login here with  email and password</h2>
+        <input type="email"  placeholder="email" name="email"  required>
+        <input type="password"  placeholder="password" name="password"  required>
+        <button style="background-color: skyblue;" type="submit">LOGIN</button>
        </form>
+       
+       
+       
 
-       <div>
-        <% if (message) { %>
-         <h4> <%= message %></h4>
-         <% if (user) { %>
-         <p> <%= user %>  </p>
-         %>}
-         %>}
-       </div>
+
     </div>
     <style>
         input {
@@ -88,5 +79,5 @@
             font-size: 16px;
         }
     </style>
-</body>  
+</body>
 </html>

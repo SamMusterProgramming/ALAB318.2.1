@@ -6,6 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    hello world
+    <div style="display: flex; flex-direction: column;align-items: center;">
+           <div>
+           <p id="message" style=" font-size: 30px;">  <%= message %>  </p> 
+           </div>
+        <% if (user) { %>
+            <h4><span style="color :blue " >Welcome </span><%= user.name %></h4>
+          <% } %>
+
+          <a href="http://localhost:8080/users"> Go back to users</a>
+    </div>
+       
+     
+
+ <script>
+   let message = document.getElementById('message')
+   message.style.color = "<%= color %>"
+ </script>
+
+      
 </body>
 </html>

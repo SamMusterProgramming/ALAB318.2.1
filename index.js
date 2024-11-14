@@ -13,10 +13,10 @@ app.set("home", "./views");
 
 app.use("/users", userRoutes);
 
-
+  
 
 app.get("/", (req, res) => {
-  res.render('home')  
+  res.render('home', {user:{name:"unkown"} , message : "Welcome to our users interface", color: "skyblue"})  
 });
 
 
